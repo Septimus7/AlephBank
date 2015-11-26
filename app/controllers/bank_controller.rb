@@ -1,6 +1,6 @@
 class BankController < ApplicationController
   def transaction
-    gon.x = 123 # dummy
+    gon.x = [123, 'Damian jest fajny'] # dummy
   end
 
   def history

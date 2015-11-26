@@ -13,6 +13,7 @@ pl:
         
     labels:
       defaults:
+        login: 'Login:'
         email: 'E-mail:'
         password: 'Hasło:'
         password_confirmation: 'Powtórz hasło:'

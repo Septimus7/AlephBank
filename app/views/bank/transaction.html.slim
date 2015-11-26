@@ -1,0 +1,7 @@
+div
+
+  input ng-model="search"
+  p ng-repeat="d in gonData.x | filter:search" = "{{d}}"
+
+= include_gon
+= Gon::Base.render_data

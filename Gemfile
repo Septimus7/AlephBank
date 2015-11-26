@@ -35,7 +35,6 @@ gem 'cocoon'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 
-gem 'angularjs-rails'
 gem 'gon'
 
 gem "font-awesome-rails"

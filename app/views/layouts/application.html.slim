@@ -9,7 +9,7 @@ html
     = javascript_include_tag "application.js"
     = csrf_meta_tags
 
-  body ng-app="alephBank"
+  body ng-app="alephBank" ng-controller="alephController"
     nav class="navbar navbar-default navbar-static-top"
       .container
         .navbar-header
@@ -31,6 +31,7 @@ html
         div.page-content
           = yield
 
+        = javascript_include_tag "angular.min.js"
         = javascript_include_tag "aleph-angular.js"
 
         footer

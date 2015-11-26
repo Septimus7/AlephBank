@@ -11,7 +11,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125112456) do
+ActiveRecord::Schema.define(version: 20151126215644) do
+
+  create_table "accounts", force: :cascade do |t|
+    t.string   "number"
+    t.integer  "user_id"
+    t.float    "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "accounts", ["user_id"], name: "index_accounts_on_user_id"
+
+  create_table "bank_transfers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "contractor_name"
+    t.string   "contractor_address"
+    t.string   "contractor_account_number"
+    t.integer  "account_id"
+    t.string   "title"
+    t.float    "amount"
+    t.integer  "type"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "bank_transfers", ["account_id"], name: "index_bank_transfers_on_account_id"
+  add_index "bank_transfers", ["user_id"], name: "index_bank_transfers_on_user_id"
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "account_number"
+    t.string   "description"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "contacts", ["user_id"], name: "index_contacts_on_user_id"
+
+  create_table "help_entries", force: :cascade do |t|
+    t.string   "description"
+    t.string   "title"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "login",                            null: false

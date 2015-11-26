@@ -1,4 +1,4 @@
-@app = angular.module('alephBank', [])
+app = angular.module('alephBank', [])
 
 app.controller('newTransferController', ($scope) ->
   $scope.data = gon.x  # dummy

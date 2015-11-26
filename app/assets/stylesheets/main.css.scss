@@ -1,0 +1,74 @@
+.right {
+  float: right;
+}
+
+.center {
+  text-align: center;
+}
+
+.with-top-margin {
+  margin-top: 25px;
+}
+
+#aleph {
+  margin-top: -3px;
+  margin-right: 5px;
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.navbar-default .navbar-nav {
+  li {
+    a.no-hover:hover {
+      background-color: #DD4814;
+    }
+    a.menu-btn {
+      padding: 7px;
+      margin-top: 8px;
+      margin-left: 10px;
+    }
+  }
+}
+
+.menu-with-icons {
+  text-align: center;
+  font-size: 30px;
+
+  margin-top: 20px;
+
+  i {
+    font-size: 66px;
+  }
+
+  h2 {
+    margin-top: 8px;
+  }
+
+  .menu-item:hover {
+    color: #97310E;
+  }
+
+  a {
+    color: #444;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  a:focus {
+    text-decoration: none;
+  }
+}
+
+#fontSizeSetterLow {
+  font-size: 12px;
+}
+
+#fontSizeSetterMid {
+  font-size: 17px;
+}
+
+#fontSizeSetterHigh {
+  font-size: 22px;
+}

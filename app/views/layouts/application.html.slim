@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    base href=root_url
+    meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
+    title= content_for?(:title) ? yield(:title) : "ALEPH BANK"
+    meta content=(content_for?(:description) ? yield(:description) : "ALEPH BANK") name='description'
+    = stylesheet_link_tag "application", :media => 'all'
+    = javascript_include_tag "application.js"
+    = csrf_meta_tags
+
+  body ng-app="alephBank"
+    nav class="navbar navbar-default navbar-static-top"
+      .container
+        .navbar-header
+          = link_to '<span class="badge" id="aleph">ℵ</span> ALEPH BANK'.html_safe, root_url, :class => 'navbar-brand'
+        .navbar-collapse.collapse
+          = render 'layouts/header'
+
+
+    .container
+
+      .page-main-body
+        div class="messages"
+          = render 'layouts/messages'
+
+        - if user_signed_in?
+          div class="menu-with-icons"
+            = render 'layouts/menu_with_icons'
+
+        div.page-content
+          = yield
+
+        = javascript_include_tag "aleph-angular.js"
+
+        footer

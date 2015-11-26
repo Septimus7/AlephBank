@@ -1,0 +1,44 @@
+pl:
+  errors:
+    messages:
+      not_found: "nie znaleziono"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "Ten adres email jest już zajęty"
+              invalid: "Nieprawidłowy adres e-mail."
+            password:
+              too_short: "Hasło za krótkie. Wymagane przynajmniej 8 znaków."
+              blank: "Hasło nie może być puste"
+            password_confirmation:
+              confirmation: "Należy wpisać hasło drugi raz."
+
+  devise:
+    failure:
+      inactive: "Twoje konto jest nieaktywne"
+      locomotive_account:
+        unauthenticated: 'Musisz się zalogować lub zarejestrować, aby kontynuować.'
+        unconfirmed: 'Musisz dokonać potwierdzenia konta, aby kontunuować.'
+        locked: 'Twoje konto jest zablokowane.'
+        invalid: 'Niewłaściwy adres e-mailowy lub hasło.'
+        not_found_in_database: 'Niewłaściwy adres e-mailowy lub hasło.'
+        no_membership: 'Twoje konto nie należy do tej witryny. Skontaktuj się z jej administratorem, aby uzyskać dostęp.'
+        invalid_token: 'Błędny token uwierzytelniający.'
+        timeout: 'Twoja sesja wygasła, proszę zaloguj się ponownie, aby kontynuować.'
+        inactive: 'Twoje konto nie zostało jeszcze aktywowane.'
+      user:
+        invalid: 'Nieprawidłowa nazwa użytkownika lub hasło.'
+        not_found_in_database: 'Nieprawidłowa nazwa użytkownika lub hasło.'
+        unconfirmed: "Twoje konto nie zostało aktywowane."
+        unauthenticated: "Dostęp do tej sekcji mają tylko zalogowani użytkownicy"
+      already_authenticated: 'Jesteś już zalogowany!'
+    sessions:
+      locomotive_account:
+        signed_in: 'Zalogowano Cię pomyślnie.'
+        signed_out: 'Wylogowano Cię pomyślnie.'
+      user:
+        signed_in: 'Zalogowano Cię pomyślnie.'
+        signed_out: 'Wylogowano Cię pomyślnie.'

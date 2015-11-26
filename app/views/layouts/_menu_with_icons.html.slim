@@ -1,0 +1,23 @@
+
+.col-md-4.menu-item
+  - @class = action_name == 'transaction' ? 'text-primary' : ''
+  a href="/bank/new-transaction"
+    div class=@class
+      = fa_icon "money"
+      h2 = "Nowy przelew"
+
+
+.col-md-4.menu-item
+  - @class = action_name == 'history' ? 'text-primary' : ''
+  a href="/bank/history"
+    div class=@class
+      = fa_icon "history"
+      h2 = "Historia"
+
+
+.col-md-4.menu-item
+  - @class = action_name == 'help' ? 'text-primary' : ''
+  a href="/bank/help"
+    div class=@class
+      = fa_icon "question"
+      h2 = "Pomoc"

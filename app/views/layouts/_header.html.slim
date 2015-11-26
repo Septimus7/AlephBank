@@ -1,0 +1,20 @@
+ul.nav.navbar-nav
+  li
+    = link_to "Wersja kontrastowa", "javascript:void(0)", :onclick => 'toggleContrast()', :class => "btn btn-default menu-btn"
+  li
+    = link_to "A", "javascript:void(0)", :onclick => 'setFontSize(0)', :class => "btn btn-info menu-btn", id: 'fontSizeSetterLow'
+  li
+    = link_to "A", "javascript:void(1)", :onclick => 'setFontSize(1)', :class => "btn btn-warning menu-btn", id: 'fontSizeSetterMid'
+  li
+    = link_to "A", "javascript:void(1)", :onclick => 'setFontSize(2)', :class => "btn btn-warning menu-btn", id: 'fontSizeSetterHigh'
+
+
+ul.nav.navbar-nav.navbar-right
+
+  - if user_signed_in?
+    li
+      a.no-hover = "Zalogowano jako #{current_user.full_name}"
+    li
+      = link_to "Wyloguj", destroy_user_session_path, :method => :delete, class: 'btn btn-default menu-btn'
+
+

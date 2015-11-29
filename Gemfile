@@ -21,6 +21,7 @@ gem 'twitter-bootswatch-rails', '~> 3.3.4'
 gem 'twitter-bootswatch-rails-helpers'
 gem 'therubyracer'
 gem 'less-rails', '~> 2.7.0'
+gem 'coffee-rails'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'

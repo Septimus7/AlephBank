@@ -6,8 +6,10 @@ class BankController < ApplicationController
   end
 
   def history
+    gon.history = BankTransfer.where({user: current_user})
   end
 
   def help
+    gon.helpEntries = HelpEntry.all
   end
 end

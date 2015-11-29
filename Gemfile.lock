@@ -249,6 +249,7 @@ DEPENDENCIES
   byebug
   carrierwave
   cocoon
+  coffee-rails
   devise
   font-awesome-rails
   gon

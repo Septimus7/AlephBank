@@ -15,5 +15,6 @@
 //= require turbolinks
 //= require united/loader
 //= require united/bootswatch
-
+//= require angular.min
+//= require aleph-angular
 

@@ -1,5 +1,14 @@
 div
 
+  .rows
+    .col-md-4
+      .list-group
+        a href="" class="list-group-item" ng-repeat="tab in gonData.helpEntries" ng-class="{active:isActiveHelpTab(tab)}" ng-click="onClickHelpTab(tab)"
+          | {{tab.title}}
+
+    .well.col-md-8
+      h2 {{currentHelpTab.title}}
+      p.text-justify {{currentHelpTab.description}}
 
 = include_gon
 = Gon::Base.render_data

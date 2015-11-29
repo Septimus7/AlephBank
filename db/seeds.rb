@@ -56,3 +56,15 @@ BankTransfer.first_or_create([
                                      amount: 50.0
                                  }
                              ])
+
+
+HelpEntry.first_or_create([
+                             {
+                                 title: 'Informacje o banku',
+                                 description: 'Jesteśmy małym, acz dobrze prosperującym bankiem...',
+                             },
+                             {
+                                 title: 'Logowanie',
+                                 description: 'Coś tu będzie'
+                             }
+                         ])

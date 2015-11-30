@@ -11,6 +11,7 @@ app.filter('startFrom', () ->
 
 app.controller('historyController', ['$scope', ($scope) ->
   $scope.filtered = $scope.historyItems = gon.history
+  $scope.accounts = gon.accounts
 
   $scope.search = {}
 
@@ -19,7 +20,7 @@ app.controller('historyController', ['$scope', ($scope) ->
 
   $scope.currentPage = 1
   $scope.totalItems = $scope.historyItems.length
-  $scope.entryLimit = 2
+  $scope.entryLimit = 10
   $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit)
 
   f = (newVal, oldVa) ->

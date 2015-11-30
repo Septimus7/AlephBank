@@ -7,6 +7,7 @@ class BankController < ApplicationController
 
   def history
     gon.history = BankTransfer.where({user: current_user})
+    gon.accounts = Account.where({user: current_user})
   end
 
   def help

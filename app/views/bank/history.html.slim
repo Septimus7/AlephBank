@@ -1,5 +1,16 @@
 div ng-controller="historyController"
 
+  .well.col-md-12.with-top-margin
+    h3 = "Stan konta"
+    table.table
+      thead
+        th = "Numer rachunku"
+        th = "Saldo"
+      tbody
+        tr ng-repeat="account in accounts"
+          td = "{{account.number}}"
+          td = "{{account.amount | currency:'' }} PLN"
+
   .rows
     .well.col-md-4
       form.form-horizontal
@@ -26,14 +37,14 @@ div ng-controller="historyController"
         thead
           th = "Data"
           th = "Nazwa odbiorcy/nadawcy"
-          th = "Tytuł płatności"
+          th = "Tytuł transakcji"
           th = "Kwota"
         tbody
           tr ng-repeat="row in filtered | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit"
             td = "{{row.created_at | date : format : short}}"
             td = "{{row.contractor_name}}"
             td = "{{row.title}}"
-            td = "{{row.amount}}"
+            td = "{{row.amount | currency:''}} PLN"
 
       .center
         uib-pagination ng-model="currentPage" max-size="noOfPages" total-items="totalItems" items-per-page="entryLimit" previous-text="Poprzedni" next-text="Następny"

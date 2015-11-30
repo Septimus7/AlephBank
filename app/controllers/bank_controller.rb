@@ -1,8 +1,6 @@
 class BankController < ApplicationController
   def transaction
-    gon.x = ['Damian jest fajny', 'A Tomek jeszcze fajniejszy', 'Za to Bartek...'] # dummy
-
-    # Dummy'an
+    gon.accounts = Account.where({user: current_user})
   end
 
   def history

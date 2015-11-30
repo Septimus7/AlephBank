@@ -1,7 +1,34 @@
-div
+div ng-controller="transactionController"
 
-  input ng-model="search"
-  p ng-repeat="d in gonData.x | filter:search" = "{{d}}"
+  .jumbotron.col-md-10.col-md-offset-1
+    form
+      .form-group
+        label for="source_account" = "Rachunek źródłowy:"
+        select#source_account.form-control type="text"
+          option ng-repeat="account in accounts" value="{{account.id}}" = "{{ account.number }} (saldo: {{account.amount | currency:''}} PLN)"
+
+      .form-group
+        label for="target_account" = "Rachunek odbiorcy:"
+        input#target_account.form-control type="text"
+
+      .form-group
+        label for="contractor_name" = "Nazwa odbiorcy:"
+        input#contractor_name.form-control type="text"
+
+      .form-group
+        label for="contractor_address" = "Adres odbiorcy:"
+        input#contractor_address.form-control type="text"
+
+      .form-group
+        label for="title" = "Tytuł:"
+        textarea#title.form-control rows=3 placeholder="Tytuł"
+
+      .form-group
+        label for="amount" = "Kwota:"
+        input#amount.form-control type="number" step="any" placeholder="Kwota"
+
+    button type="submit" class="btn btn-primary pull-right" = "Zatwierdź"
+
 
 = include_gon
 = Gon::Base.render_data

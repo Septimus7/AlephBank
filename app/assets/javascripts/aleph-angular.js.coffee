@@ -9,6 +9,10 @@ app.filter('startFrom', () ->
     return []
 )
 
+app.controller('transactionController', ['$scope', ($scope) ->
+  $scope.accounts = gon.accounts
+])
+
 app.controller('historyController', ['$scope', ($scope) ->
   $scope.filtered = $scope.historyItems = gon.history
   $scope.accounts = gon.accounts

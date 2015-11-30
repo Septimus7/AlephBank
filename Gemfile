@@ -19,6 +19,7 @@ gem 'simple_form', '>= 3.0.0.rc'
 gem 'twitter-bootswatch-rails', '~> 3.3.4'
 # twitter bootstrap helpers gem, e.g., alerts etc...
 gem 'twitter-bootswatch-rails-helpers'
+gem 'angular-ui-bootstrap-rails'
 gem 'therubyracer'
 gem 'less-rails', '~> 2.7.0'
 gem 'coffee-rails'

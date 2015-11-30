@@ -54,6 +54,24 @@ BankTransfer.first_or_create([
                                      account: accounts[1],
                                      title: 'przelewik',
                                      amount: 50.0
+                                 },
+                                 {
+                                     user: users[1],
+                                     contractor_name: 'Jan Kowalski',
+                                     contractor_address: 'ul. Malinowa 789j/90 Kędzierzyn-Koźle',
+                                     contractor_account_number: '0000000',
+                                     account: accounts[1],
+                                     title: 'przelewik',
+                                     amount: 999.99
+                                 },
+                                 {
+                                     user: users[1],
+                                     contractor_name: 'Anna Nowak',
+                                     contractor_address: 'brak',
+                                     contractor_account_number: '00 0000 0000 0000 0000 0000',
+                                     account: accounts[1],
+                                     title: 'za pizzę',
+                                     amount: 10.56
                                  }
                              ])
 

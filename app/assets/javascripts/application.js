@@ -17,4 +17,5 @@
 //= require united/bootswatch
 //= require angular.min
 //= require aleph-angular
+//= require angular-ui-bootstrap-tpls
 

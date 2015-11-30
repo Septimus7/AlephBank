@@ -1,5 +1,42 @@
-div
+div ng-controller="historyController"
 
+  .rows
+    .well.col-md-4
+      form.form-horizontal
+        h3 = "Wyszukiwanie"
+        .form-group
+          label.col-sm-4.control-label for="transaction_title" = "Tytuł:"
+          .col-sm-8
+            input#transaction_title.form-control type="text" placeholder="Tytuł" ng-model="search.transaction_title"
+
+        .form-group
+          label.col-sm-4.control-label for="amount_min" = "Kwota od:"
+          .col-sm-8
+            input#amount_min.form-control type="number" step="any" ng-model="search.min_amount" placeholder="Kwota od"
+
+        .form-group
+          label.col-sm-4.control-label for="amount_max" = "Kwota do:"
+          .col-sm-8
+            input#amount_max.form-control type="number" step="any" ng-model="search.max_amount" placeholder="Kowta do"
+
+      button.btn.pull-right ng-click="resetFilters()" = "Wyczyść"
+
+    .col-md-8
+      table.table.table-striped
+        thead
+          th = "Data"
+          th = "Nazwa odbiorcy/nadawcy"
+          th = "Tytuł płatności"
+          th = "Kwota"
+        tbody
+          tr ng-repeat="row in filtered | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit"
+            td = "{{row.created_at | date : format : short}}"
+            td = "{{row.contractor_name}}"
+            td = "{{row.title}}"
+            td = "{{row.amount}}"
+
+      .center
+        uib-pagination ng-model="currentPage" max-size="noOfPages" total-items="totalItems" items-per-page="entryLimit" previous-text="Poprzedni" next-text="Następny"
 
 = include_gon
 = Gon::Base.render_data

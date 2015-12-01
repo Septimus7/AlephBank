@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   match "bank/new-transaction" => 'bank#transaction', via: [:post, :get]
   match "bank/history" => 'bank#history', via: [:post, :get]
   match "bank/help" => 'bank#help', via: [:post, :get]
+  match "bank/save-bank-transfer" => 'bank#save_bank_transfer', via: [:get, :post]
 
 end

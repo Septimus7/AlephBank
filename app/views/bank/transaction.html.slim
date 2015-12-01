@@ -1,33 +1,32 @@
 div ng-controller="transactionController"
 
   .jumbotron.col-md-10.col-md-offset-1
-    form
+    = form_for '', url: {action: "save_bank_transfer"} do |f|
       .form-group
-        label for="source_account" = "Rachunek źródłowy:"
-        select#source_account.form-control type="text"
-          option ng-repeat="account in accounts" value="{{account.id}}" = "{{ account.number }} (saldo: {{account.amount | currency:''}} PLN)"
+        = label_tag(:source_account, "Rachunek odbiorcy:")
+        = select_tag :source_account, options_for_select(@accounts.map {|a| [a.number + ' (saldo: ' + a.amount.to_s + ' PLN)', a.id]}), class: 'form-control'
 
       .form-group
-        label for="target_account" = "Rachunek odbiorcy:"
-        input#target_account.form-control type="text"
+        = label_tag(:contractor_account_number, "Rachunek odbiorcy:")
+        = text_field_tag :contractor_account_number, nil, class: 'form-control'
 
       .form-group
-        label for="contractor_name" = "Nazwa odbiorcy:"
-        input#contractor_name.form-control type="text"
+        = label_tag(:contractor_name, "Nazwa odbiorcy:")
+        = text_field_tag :contractor_name, nil, class: 'form-control'
 
       .form-group
-        label for="contractor_address" = "Adres odbiorcy:"
-        input#contractor_address.form-control type="text"
+        = label_tag(:contractor_address, "Adres odbiorcy:")
+        = text_field_tag :contractor_address, nil, class: 'form-control'
 
       .form-group
-        label for="title" = "Tytuł:"
-        textarea#title.form-control rows=3 placeholder="Tytuł"
+        = label_tag(:title, "Tytuł:")
+        = text_field_tag :title, nil, class: 'form-control', rows: 3, placeholder: "Tytuł"
 
       .form-group
-        label for="amount" = "Kwota:"
-        input#amount.form-control type="number" step="any" placeholder="Kwota"
+        = label_tag(:amount, "Kwota:")
+        = number_field_tag :amount, nil, class: 'form-control', step: "any", placeholder: "Kwota"
 
-    button type="submit" class="btn btn-primary pull-right" = "Zatwierdź"
+      button type="submit" class="btn btn-primary pull-right" = "Wyślij przelew"
 
 
 = include_gon

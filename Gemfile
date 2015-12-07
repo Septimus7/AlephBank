@@ -23,6 +23,7 @@ gem 'angular-ui-bootstrap-rails'
 gem 'therubyracer'
 gem 'less-rails', '~> 2.7.0'
 gem 'coffee-rails'
+gem 'non-stupid-digest-assets'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'

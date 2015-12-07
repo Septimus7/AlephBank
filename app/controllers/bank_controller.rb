@@ -34,9 +34,16 @@ class BankController < ApplicationController
   def history
     gon.history = BankTransfer.where({user: current_user})
     gon.accounts = Account.where({user: current_user})
+    # include_angular_hack
   end
 
   def help
     gon.helpEntries = HelpEntry.all
+    # include_angular_hack
+  end
+
+  def include_angular_hack
+    script = File.read('public/assets/aleph-angular.js')
+    @angular_contents = script
   end
 end

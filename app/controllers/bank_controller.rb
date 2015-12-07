@@ -32,7 +32,7 @@ class BankController < ApplicationController
   end
 
   def history
-    gon.history = BankTransfer.where({user: current_user})
+    gon.history = BankTransfer.where({user: current_user}).map { |transfer| transfer.present_for_history }
     gon.accounts = Account.where({user: current_user})
     # include_angular_hack
   end

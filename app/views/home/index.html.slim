@@ -1,6 +1,7 @@
 - if user_signed_in?
   .well.col-md-8.col-md-offset-2.with-top-margin
-    h2 = "Witaj w Aleph Banku!"
-    p = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    h2 style="margin-bottom: 30px;" = "Witaj w Aleph Banku!"
+    p = "System bankowości internetowej Aleph Banku pozwala na <a href=\"javascript:void(0)\" onclick=\"window.location.replace('/bank/new-transaction');\">wykonywanie przelewów</a> oraz przeglądanie <a href=\"javascript:void(0)\" onclick=\"window.location.replace('/bank/history');\">historii operacji</a> na swoich kontach bankowych.".html_safe
+    p = "W razie wątpilowści, warto przejrzeć <a href=\"javascript:void(0)\" onclick=\"window.location.replace('/bank/help');\">dział pomocy</a> lub udać się do oddziału banku.".html_safe
 - else
   = render 'shared/login_form'

@@ -11,6 +11,20 @@ app.filter('startFrom', () ->
 
 app.controller('transactionController', ['$scope', ($scope) ->
   $scope.accounts = gon.accounts
+  $scope.source_account = $scope.accounts[0].id
+
+  $scope.accounts_h = {}
+
+  for account in $scope.accounts
+    $scope.accounts_h[account.id] = account
+
+  $scope.hasNotMoney = () ->
+    if not $scope.transaction.amount.$viewValue?
+      return
+    v = $scope.transaction.amount.$viewValue < $scope.accounts_h[$scope.source_account].amount
+
+    $scope.transaction.amount.$setValidity('not_enough_money', v);
+
 ])
 
 app.controller('historyController', ['$scope', ($scope) ->

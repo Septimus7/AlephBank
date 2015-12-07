@@ -1,32 +1,40 @@
 div ng-controller="transactionController"
 
   .jumbotron.col-md-10.col-md-offset-1
-    = form_for '', url: {action: "save_bank_transfer"} do |f|
+    = form_for '', url: {action: "save_bank_transfer"}, :html => { :name => "transaction" } do |f|
       .form-group
-        = label_tag(:source_account, "Rachunek odbiorcy:")
-        = select_tag :source_account, options_for_select(@accounts.map {|a| [a.number + ' (saldo: ' + a.amount.to_s + ' PLN)', a.id]}), class: 'form-control'
+        = label_tag(:source_account, "Rachunek nadawcy:")
+        = select_tag :source_account, {}, {class: 'form-control', 'ng-model': 'source_account', 'ng-options': "item.id as item.number + ' (saldo: ' + item.amount + ')' for item in accounts", 'ng-change': 'hasNotMoney()'}
 
-      .form-group
+      .form-group ng-class="{ 'has-error' : transaction.contractor_account_number.$invalid && transaction.contractor_account_number.$touched }"
         = label_tag(:contractor_account_number, "Rachunek odbiorcy:")
-        = text_field_tag :contractor_account_number, nil, class: 'form-control'
+        = text_field_tag :contractor_account_number, nil, class: 'form-control', required: true, 'ng-model': "contractor_account_number", 'ng-pattern': "/^[0-9 ]*$/"
+        span.help-block ng-show="transaction.contractor_account_number.$error.required && transaction.contractor_account_number.$touched" = 'Rachunek odbiorcy jest wymagany'
+        span.help-block ng-show="transaction.contractor_account_number.$error.pattern" = 'Rachunek odbiorcy może zawierać tylko cyfry i spację.'
 
-      .form-group
+      .form-group ng-class="{ 'has-error' : transaction.contractor_name.$invalid && transaction.contractor_name.$touched }"
         = label_tag(:contractor_name, "Nazwa odbiorcy:")
-        = text_field_tag :contractor_name, nil, class: 'form-control'
+        = text_field_tag :contractor_name, nil, class: 'form-control', required: true, 'ng-model': 'contractor_name'
+        span.help-block ng-show="transaction.contractor_name.$invalid && transaction.contractor_name.$touched" = 'Nazwa odbiorcy jest wymagana.'
 
-      .form-group
+      .form-group ng-class="{ 'has-error' : transaction.contractor_address.$invalid && transaction.contractor_address.$touched }"
         = label_tag(:contractor_address, "Adres odbiorcy:")
-        = text_field_tag :contractor_address, nil, class: 'form-control'
+        = text_field_tag :contractor_address, nil, class: 'form-control', placeholder: "Adres odbiorcy", required: true, 'ng-model': 'contractor_address'
+        span.help-block ng-show="transaction.contractor_address.$invalid && transaction.contractor_address.$touched" = 'Adres odbiorcy jest wymagany.'
 
-      .form-group
+      .form-group ng-class="{ 'has-error' : transaction.title.$invalid && transaction.title.$touched }"
         = label_tag(:title, "Tytuł:")
-        = text_field_tag :title, nil, class: 'form-control', rows: 3, placeholder: "Tytuł"
+        = text_field_tag :title, nil, class: 'form-control', rows: 3, placeholder: "Tytuł", required: true, 'ng-model': 'title'
+        span.help-block ng-show="transaction.title.$invalid && transaction.title.$touched" = 'Tytuł przelewu jest wymagany.'
 
-      .form-group
+      .form-group ng-class="{ 'has-error' : transaction.amount.$invalid && transaction.amount.$touched }"
         = label_tag(:amount, "Kwota:")
-        = number_field_tag :amount, nil, class: 'form-control', step: "any", placeholder: "Kwota"
+        = number_field_tag :amount, nil, class: 'form-control', min: 0, step: "any", placeholder: "Kwota", required: true, 'ng-model': 'amount', 'ng-change': 'hasNotMoney()'
+        span.help-block ng-show="transaction.amount.$error.required && transaction.amount.$touched" = 'Kwota przelewu jest wymagana.'
+        span.help-block ng-show="transaction.amount.$error.not_enough_money" = 'Kwota przelewu nie może przekraczać salda konta.'
+        span.help-block ng-show="transaction.amount.$error.min" = 'Kwota przelewu musi być większa od zera.'
 
-      button type="submit" class="btn btn-primary pull-right" = "Wyślij przelew"
+      button.btn.btn-primary.pull-right type="submit" ng-disabled="transaction.$invalid" = "Wyślij przelew"
 
 
 = include_gon

@@ -8,7 +8,7 @@ class BankController < ApplicationController
   end
 
   def save_bank_transfer
-    account = Account.find(params[:source_account])
+    account = Account.find(params[:source_account].split(':')[1])
 
     bank_transfer = BankTransfer.new(
         {

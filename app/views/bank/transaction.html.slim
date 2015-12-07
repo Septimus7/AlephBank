@@ -7,7 +7,7 @@ div ng-controller="transactionController"
         = select_tag :source_account, {}, {class: 'form-control', 'ng-model' => 'source_account', 'ng-options' => "item.id as item.number + ' (saldo: ' + item.amount + ')' for item in accounts", 'ng-change' => 'hasNotMoney()'}
 
       .form-group ng-class="{ 'has-error' : transaction.contractor_account_number.$invalid && transaction.contractor_account_number.$touched }"
-        = label_tag(:contractor_account_number, "Rachunek odbiorcy:")r
+        = label_tag(:contractor_account_number, "Rachunek odbiorcy:")
         = text_field_tag :contractor_account_number, nil, class: 'form-control', required: true, 'ng-model' => "contractor_account_number", 'ng-pattern' => "/^[0-9 ]*$/"
         span.help-block ng-show="transaction.contractor_account_number.$error.required && transaction.contractor_account_number.$touched" = 'Rachunek odbiorcy jest wymagany'
         span.help-block ng-show="transaction.contractor_account_number.$error.pattern" = 'Rachunek odbiorcy może zawierać tylko cyfry i spację.'

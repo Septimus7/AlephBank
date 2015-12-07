@@ -7,8 +7,8 @@ div ng-controller="helpController"
           | {{tab.title}}
 
     .well.col-md-8
-      h2 {{currentHelpTab.title}}
-      p.text-justify {{currentHelpTab.description}}
+      h2 style="margin-bottom: 30px;" {{currentHelpTab.title}}
+      p.text-justify ng-bind-html="currentHelpTab.description | to_trusted"
 
 = include_gon
 = Gon::Base.render_data

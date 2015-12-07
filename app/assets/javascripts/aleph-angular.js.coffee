@@ -9,6 +9,10 @@ app.filter('startFrom', () ->
     return []
 )
 
+app.filter('to_trusted', ['$sce', ($sce)->
+  (text) -> $sce.trustAsHtml(text)
+])
+
 app.controller('transactionController', ['$scope', ($scope) ->
   $scope.accounts = gon.accounts
   $scope.source_account = $scope.accounts[0].id

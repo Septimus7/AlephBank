@@ -84,5 +84,17 @@ HelpEntry.first_or_create([
                              {
                                  title: 'Logowanie',
                                  description: 'Coś tu będzie'
+                             },
+                             {
+                                 title: 'Nowy przelew',
+                                 description: 'Coś tu będzie'
+                             },
+                             {
+                                 title: 'Historia operacji',
+                                 description: 'Coś tu będzie'
+                             },
+                             {
+                                 title: 'Osoby słabo widzące',
+                                 description: 'Portal bankowości internetowej Aleph Banku jest przystosowany do użytku przez osoby słabo widzące.</p><p>Istnieje możliwość zmiany rozmiaru tekstu na większy. Służą do tego przyciski z literą <strong>A</strong> w lewym górnym rogu ekranu, tuż obok logo banku.</p><p>Aktualnie wybrany rozmiar czcionki podświetlony jest na fioletowo. Dostępne rozmiary czcionek to <a href="javascript:void(0)" onclick="setFontSize(0)">standardowy</a>, <a href="javascript:void(0)" onclick="setFontSize(1)">duży</a> i <a href="javascript:void(0)" onclick="setFontSize(2)">bardzo duży</a>.'
                              }
                          ])

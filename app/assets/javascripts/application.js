@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.cookie
+//= require fontSize
 //= require turbolinks
 //= require united/loader
 //= require united/bootswatch

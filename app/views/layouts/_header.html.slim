@@ -1,12 +1,12 @@
 ul.nav.navbar-nav
+  /li
+  /  = link_to "Wersja kontrastowa", "javascript:void(0)", :onclick => 'toggleContrast()', :class => "btn btn-default menu-btn"
   li
-    = link_to "Wersja kontrastowa", "javascript:void(0)", :onclick => 'toggleContrast()', :class => "btn btn-default menu-btn"
+    = link_to "A", "javascript:void(0)", :onclick => 'setFontSize(0)', :class => "btn btn-info menu-btn letter-size-button letter-size-button0", id: 'fontSizeSetterLow'
   li
-    = link_to "A", "javascript:void(0)", :onclick => 'setFontSize(0)', :class => "btn btn-info menu-btn", id: 'fontSizeSetterLow'
+    = link_to "A", "javascript:void(0)", :onclick => 'setFontSize(1)', :class => "btn btn-warning menu-btn letter-size-button letter-size-button1", id: 'fontSizeSetterMid'
   li
-    = link_to "A", "javascript:void(1)", :onclick => 'setFontSize(1)', :class => "btn btn-warning menu-btn", id: 'fontSizeSetterMid'
-  li
-    = link_to "A", "javascript:void(1)", :onclick => 'setFontSize(2)', :class => "btn btn-warning menu-btn", id: 'fontSizeSetterHigh'
+    = link_to "A", "javascript:void(0)", :onclick => 'setFontSize(2)', :class => "btn btn-warning menu-btn letter-size-button  letter-size-button2", id: 'fontSizeSetterHigh'
 
 
 ul.nav.navbar-nav.navbar-right

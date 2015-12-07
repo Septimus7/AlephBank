@@ -14273,7 +14273,23 @@ maxFrac:2,minFrac:2,minInt:1,negPre:"-\u00a4",negSuf:"",posPre:"\u00a4",posSuf:"
 
   app.controller('transactionController', [
     '$scope', function($scope) {
-      return $scope.accounts = gon.accounts;
+      var account, i, len, ref;
+      $scope.accounts = gon.accounts;
+      $scope.source_account = $scope.accounts[0].id;
+      $scope.accounts_h = {};
+      ref = $scope.accounts;
+      for (i = 0, len = ref.length; i < len; i++) {
+        account = ref[i];
+        $scope.accounts_h[account.id] = account;
+      }
+      return $scope.hasNotMoney = function() {
+        var v;
+        if ($scope.transaction.amount.$viewValue == null) {
+          return;
+        }
+        v = $scope.transaction.amount.$viewValue < $scope.accounts_h[$scope.source_account].amount;
+        return $scope.transaction.amount.$setValidity('not_enough_money', v);
+      };
     }
   ]);
 

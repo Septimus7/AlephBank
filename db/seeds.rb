@@ -79,19 +79,19 @@ BankTransfer.first_or_create([
 HelpEntry.first_or_create([
                              {
                                  title: 'Informacje o banku',
-                                 description: 'Jesteśmy małym, acz dobrze prosperującym bankiem...',
+                                 description: 'Jesteśmy małym, acz dobrze prosperującym bankiem. Oferujemy prowadzenie wielu kont osobistych, wykonywanie przelewów oraz przeglądanie raportów z historii konta. </p><p>Nasza bankowość internetowa zdobyła wiele nagród za najbardziej intuicyjny interfejs. Pozwala na pełen dostęp do danych konta oraz zapewnia możliwość wykonywania przelewów 24 godziny na dobę. Dane do logowania wydawane są w oddziale banku przy zakładaniu konta.',
                              },
                              {
                                  title: 'Logowanie',
-                                 description: 'Coś tu będzie'
+                                 description: 'Logowanie następuje przez wpisanie loginu i hasła, otrzymanego w oddziale banku przy zakładaniu konta. Ze względów bezpieczeństwa nie jest zalecane zapamiętywanie danych logowania w przeglądarce. </p><p>Zmiany hasła lub przywrócenia zapomnianego loginu można dokonać jedynie w oddziale banku.'
                              },
                              {
                                  title: 'Nowy przelew',
-                                 description: 'Coś tu będzie'
+                                 description: 'Aby wykonać nowy przelew, należy wejść w odpowiednią zakładkę, oznaczoną ikonką banknota. Pojawi się szary formularz, w którym należy podać wszystkie dane przelewu. Należy wybrać rachunek, który ma zostać obciązony, podać dane odbiorcy - rachunek, nazwę oraz adres - i wprowadzić tytuł oraz kwotę przelewu.</p><p>Poprawność wprowadzanych danych jest weryfikowana na bieżąco. W przypadku pojawienia się błędu, wyświetlony zostanie komunikat pod odpowiednim polem.</p><p>Przelew zostanie zaksięgowany niezwłocznie po wciśnięciu przycisku wyślij. Można go zobaczyć w zakładce <a href="javascript:void(0)" onclick="window.location.replace(\'/bank/history\')">historia</a>.'
                              },
                              {
                                  title: 'Historia operacji',
-                                 description: 'Coś tu będzie'
+                                 description: 'W zakładce <a href="javascript:void(0)" onclick="window.location.replace(\'/bank/history\')">historia</a> widoczne są kompleksowe dane dotyczące finansów użytkownika. W górnym panelu widoczna jest lista wszystkich kont użytkownika wraz z dostępnymi saldami. W panelu poniżej widoczna jest historia wszystkich operacji na kontach użytkownika. </p><p>Istnieje możliwość wyszukiwania i filtrowania operacji. W panelu po lewej można podać pierwsze znaki tytułu przelewu lub zakres kwot. Lista operacji aktualizowana jest na bieżąco. Jeśli wyników jest zbyt wiele, dzielone są one na strony, które można zmieniać korzystająć z przycisków znajdujących się pod listą.'
                              },
                              {
                                  title: 'Osoby słabo widzące',
